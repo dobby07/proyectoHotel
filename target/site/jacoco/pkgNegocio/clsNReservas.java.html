@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>clsNReservas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mavenproject1</a> &gt; <a href="index.source.html" class="el_package">pkgNegocio</a> &gt; <span class="el_source">clsNReservas.java</span></div><h1>clsNReservas.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pkgNegocio;
+import java.sql.*;
+import java.util.ArrayList;
+import pkgEntidad.clsEReservas;
+
+/**
+ *
+ * @author USUARIO
+ */
+<span class="fc" id="L14">public class clsNReservas {</span>
+    
+<span class="fc" id="L16">    Conexion cn=new Conexion();//para reestablecer la conexion</span>
+    Connection con; //para llamar a la cadena de conexion
+    PreparedStatement ps; //ejecutar consulta
+    ResultSet rs; //almacena datos de la consulta
+<span class="fc" id="L20">    clsEReservas c=new clsEReservas();</span>
+
+
+    public static ArrayList&lt;clsEReservas&gt; MtdListarReserva(clsEReservas objres) {
+        try {
+<span class="nc" id="L25">            String SQL=&quot;Select * from tbreservas WHERE dni = ?&quot;;  </span>
+<span class="nc" id="L26">            Conexion conexion = new Conexion();</span>
+<span class="nc" id="L27">            Connection con = conexion.getConnection();</span>
+<span class="nc" id="L28">            PreparedStatement st=con.prepareStatement(SQL);</span>
+<span class="nc" id="L29">            st.setInt(1, objres.getId());</span>
+<span class="nc" id="L30">            ResultSet resultado=st.executeQuery();</span>
+<span class="nc" id="L31">            ArrayList&lt;clsEReservas&gt; lista=new ArrayList();</span>
+            clsEReservas car;
+            
+            
+<span class="nc bnc" id="L35" title="All 2 branches missed.">            while(resultado.next()){</span>
+<span class="nc" id="L36">               car=new clsEReservas();</span>
+<span class="nc" id="L37">               car.setId(resultado.getInt(&quot;Id&quot;));</span>
+<span class="nc" id="L38">               car.setCliente_dni(resultado.getString(&quot;cliente_dni&quot;));</span>
+<span class="nc" id="L39">               car.setHabitacion_id(resultado.getInt(&quot;Habitacion_id&quot;));</span>
+<span class="nc" id="L40">               car.setFechareserva(resultado.getString(&quot;Fechares&quot;));</span>
+<span class="nc" id="L41">               car.setEstado(resultado.getString(&quot;Estado&quot;));</span>
+<span class="nc" id="L42">               car.setFecha_entrada(resultado.getString(&quot;fecha_entrada&quot;));</span>
+<span class="nc" id="L43">               car.setFecha_salida(resultado.getString(&quot;fecha_salida&quot;));</span>
+<span class="nc" id="L44">               car.setPtotal(resultado.getInt(&quot;Ptotal&quot;));</span>
+
+<span class="nc" id="L46">               lista.add(car);</span>
+               
+            }
+<span class="nc" id="L49">            return lista;</span>
+<span class="nc" id="L50">        }catch (SQLException e){</span>
+<span class="nc" id="L51">            return null;</span>
+        }
+    }
+    
+    
+    public ResultSet Mtdlistar() {
+        ResultSet rpta;
+<span class="fc" id="L58">        String[] dato = new String[9];</span>
+<span class="fc" id="L59">        String sql=&quot;SELECT * FROM tbreservas&quot;;</span>
+        try{
+<span class="fc" id="L61">            con=cn.getConnection();</span>
+<span class="fc" id="L62">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L63">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L64">            return rpta;</span>
+<span class="nc" id="L65">        }catch(SQLException ex){</span>
+<span class="nc" id="L66">            System.out.println(&quot;error al Listar&quot;+ex.getMessage());</span>
+<span class="nc" id="L67">            return rpta=null;</span>
+        }
+    }
+    
+    public boolean MtdEliminar(String id) {
+<span class="fc" id="L72">          String sql = &quot;DELETE FROM tbreservas WHERE id = ?&quot;;</span>
+        try {
+<span class="fc" id="L74">            con = cn.getConnection();</span>
+<span class="fc" id="L75">            ps = con.prepareStatement(sql);</span>
+            //ps.setInt(1, id);
+<span class="fc" id="L77">            ps.setString(1, id);</span>
+<span class="fc" id="L78">            ps.executeUpdate();</span>
+<span class="fc" id="L79">            return true;</span>
+<span class="nc" id="L80">        } catch (SQLException e) {</span>
+<span class="nc" id="L81">            System.out.println(&quot;Error al eliminar: &quot; + e.getMessage());</span>
+<span class="nc" id="L82">            return false;</span>
+        }
+    }
+    
+    public boolean MtdActualizarEstado(String dni) {
+<span class="fc" id="L87">    String sql = &quot;UPDATE tbreservas SET estado = 'Reservado' WHERE id = ?&quot;;</span>
+    try {
+<span class="fc" id="L89">        con = cn.getConnection();</span>
+<span class="fc" id="L90">        ps = con.prepareStatement(sql);</span>
+<span class="fc" id="L91">        ps.setString(1, dni);</span>
+<span class="fc" id="L92">        ps.executeUpdate();</span>
+<span class="fc" id="L93">        return true;</span>
+<span class="nc" id="L94">    } catch (SQLException e) {</span>
+<span class="nc" id="L95">        System.out.println(&quot;Error al actualizar el estado: &quot; + e.getMessage());</span>
+<span class="nc" id="L96">        return false;</span>
+    }
+}
+    
+    public boolean MtdAgregar(clsEReservas objEres) {
+<span class="nc" id="L101">        String sql=&quot;insert into tbreservas(id,cliente_dni,habitacion_id,fechareserva,estado,fecha_entrada,fecha_salida)&quot;+</span>
+<span class="nc" id="L102">                &quot;values('&quot;+objEres.getId()+&quot;','&quot;+objEres.getCliente_dni()+&quot;','&quot;+objEres.getHabitacion_id()+&quot;','&quot;+objEres.getFechareserva()+&quot;','&quot;+objEres.getEstado()+&quot;','&quot;+objEres.getFecha_entrada()+&quot;','&quot;+objEres.getFecha_salida()+&quot;')&quot;;</span>
+        try{
+<span class="nc" id="L104">            con=cn.getConnection();</span>
+<span class="nc" id="L105">            ps=con.prepareStatement(sql);</span>
+<span class="nc" id="L106">            ps.executeUpdate(sql);</span>
+<span class="nc" id="L107">            return true;</span>
+<span class="nc" id="L108">        }catch (SQLException e){</span>
+<span class="nc" id="L109">            System.out.print(&quot;error al agregar &quot;+e.getMessage());</span>
+<span class="nc" id="L110">            return false;</span>
+        }
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    public ResultSet MtdBuscarCodigo(clsEReservas objEre) {
+        ResultSet rpta;
+<span class="fc" id="L117">        String[] dato=new String[4];</span>
+<span class="fc" id="L118">        String sql=&quot;SELECT * FROM tbreservas where id='&quot;+objEre.getId()+&quot;';&quot;;</span>
+        try{
+<span class="fc" id="L120">            con=cn.getConnection();</span>
+<span class="fc" id="L121">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L122">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L123">            return rpta;</span>
+<span class="nc" id="L124">        } catch(SQLException ex){</span>
+<span class="nc" id="L125">            System.out.println(&quot;error al Buscar &quot;+ex.getMessage());</span>
+<span class="nc" id="L126">            return rpta=null;</span>
+        }
+
+    }
+    
+    public boolean MtdModificar(clsEReservas objEres) {
+     
+<span class="nc" id="L133">      String sql=&quot;update tbreservas set cliente_dni  ='&quot;+objEres.getCliente_dni()+&quot;'&quot;+&quot;,habitacion_id='&quot;+objEres.getHabitacion_id()+&quot;'&quot;+&quot;,fecharesereva='&quot;+objEres.getFechareserva()+&quot;'&quot;+&quot;,estado='&quot;+objEres.getEstado()+&quot;'&quot;+&quot;,fecha_entrada='&quot;+objEres.getFecha_entrada()+&quot;'&quot;+&quot;,fecha_salida='&quot;+objEres.getFecha_salida()+&quot;'&quot;+&quot;where id=&quot;+objEres.getId()+&quot;;&quot;;</span>
+<span class="nc" id="L134">         System.out.print(sql);</span>
+        try{
+<span class="nc" id="L136">            con=cn.getConnection();</span>
+<span class="nc" id="L137">            ps=con.prepareStatement(sql);</span>
+<span class="nc" id="L138">            ps.executeUpdate(sql);</span>
+<span class="nc" id="L139">            return true;</span>
+<span class="nc" id="L140">        }catch (SQLException e)</span>
+        {
+<span class="nc" id="L142">            System.out.print(&quot;error al Modificar &quot; + e.getMessage());</span>
+<span class="nc" id="L143">            return false;</span>
+        }
+    }
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>clsNCliente.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mavenproject1</a> &gt; <a href="index.source.html" class="el_package">pkgNegocio</a> &gt; <span class="el_source">clsNCliente.java</span></div><h1>clsNCliente.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pkgNegocio;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.*;
+import javax.swing.filechooser.FileSystemView;
+import pkgEntidad.clsECliente;
+
+
+
+/**
+ *
+ * @author USUARIO
+ */
+<span class="fc" id="L34">public class clsNCliente {</span>
+    
+<span class="fc" id="L36">    Conexion cn=new Conexion();//para reestablecer la conexion</span>
+    Connection con; //para llamar a la cadena de conexion
+    PreparedStatement ps; //ejecutar consulta
+    ResultSet rs; //almacena datos de la consulta
+<span class="fc" id="L40">    clsECliente c=new clsECliente(); </span>
+
+    public ResultSet Mtdlistar() {
+        
+        ResultSet rpta;
+<span class="fc" id="L45">        String[] dato = new String[6];</span>
+<span class="fc" id="L46">        String sql=&quot;SELECT * FROM tbcliente&quot;;</span>
+        try{
+<span class="fc" id="L48">            con=cn.getConnection();</span>
+<span class="fc" id="L49">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L50">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L51">            return rpta;</span>
+<span class="nc" id="L52">        }catch(SQLException ex){</span>
+<span class="nc" id="L53">            System.out.println(&quot;error al Listar&quot;+ex.getMessage());</span>
+<span class="nc" id="L54">            return rpta=null;</span>
+        }
+
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean MtdAgregar(clsECliente objEclie) {
+<span class="fc" id="L61">        String sql = &quot;INSERT INTO tbcliente(dni, nombre, apellido, telefono) &quot; +</span>
+<span class="fc" id="L62">             &quot;VALUES ('&quot;+objEclie.getDni()+ &quot;', '&quot; + objEclie.getNombre() + &quot;','&quot; +</span>
+<span class="fc" id="L63">             objEclie.getApellido() + &quot;','&quot; + objEclie.getTelefono()+&quot;')&quot;;</span>
+        try{
+<span class="fc" id="L65">            con=cn.getConnection();</span>
+<span class="fc" id="L66">            ps=con.prepareStatement(sql);</span>
+<span class="nc" id="L67">            ps.executeUpdate(sql);</span>
+<span class="nc" id="L68">            return true;</span>
+<span class="fc" id="L69">        }catch (SQLException e){</span>
+<span class="fc" id="L70">            System.out.print(&quot;error al agregar &quot;+e.getMessage());</span>
+<span class="fc" id="L71">            return false;</span>
+        }
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public ResultSet MtdBuscarCodigo(clsECliente objEcli) {
+        ResultSet rpta;
+<span class="fc" id="L78">        String[] dato=new String[6];</span>
+<span class="fc" id="L79">        String sql=&quot;SELECT * FROM tbcliente where dni='&quot;+objEcli.getDni()+&quot;';&quot;;</span>
+        try{
+<span class="fc" id="L81">            con=cn.getConnection();</span>
+<span class="fc" id="L82">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L83">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L84">            return rpta;</span>
+<span class="nc" id="L85">        } catch(SQLException ex){</span>
+<span class="nc" id="L86">            System.out.println(&quot;error al Buscar &quot;+ex.getMessage());</span>
+<span class="nc" id="L87">            return rpta=null;</span>
+        }
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean MtdEliminar(String dni) {
+<span class="nc" id="L93">         String sql = &quot;DELETE FROM tbcliente WHERE dni = ?&quot;;</span>
+        try {
+<span class="nc" id="L95">            con = cn.getConnection();</span>
+<span class="nc" id="L96">            ps = con.prepareStatement(sql);</span>
+<span class="nc" id="L97">            ps.setString(1, dni);</span>
+<span class="nc" id="L98">            ps.executeUpdate();</span>
+<span class="nc" id="L99">            return true;</span>
+<span class="nc" id="L100">        } catch (SQLException e) {</span>
+<span class="nc" id="L101">            System.out.println(&quot;Error al eliminar: &quot; + e.getMessage());</span>
+<span class="nc" id="L102">            return false;</span>
+        }
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean MtdModificar(clsECliente objEclie) {
+<span class="nc" id="L108">       String sql = &quot;UPDATE tbcliente SET direccion = '&quot; + objEclie.getNombre() + &quot;',&quot; +</span>
+<span class="nc" id="L109">             &quot;apellido = '&quot; + objEclie.getApellido() + &quot;',&quot; +</span>
+<span class="nc" id="L110">             &quot;telefono = '&quot; + objEclie.getTelefono() + &quot;' &quot; +</span>
+<span class="nc" id="L111">             &quot;WHERE dni = &quot; + objEclie.getDni();</span>
+       
+<span class="nc" id="L113">         System.out.print(sql);</span>
+        try{
+<span class="nc" id="L115">            con=cn.getConnection();</span>
+<span class="nc" id="L116">            ps=con.prepareStatement(sql);</span>
+<span class="nc" id="L117">            ps.executeUpdate(sql);</span>
+<span class="nc" id="L118">            return true;</span>
+<span class="nc" id="L119">        }catch (SQLException e){</span>
+<span class="nc" id="L120">            System.out.print(&quot;error al Modificar &quot;+e.getMessage());</span>
+<span class="nc" id="L121">            return false;</span>
+        }
+
+    }
+   
+    public void pdfClientes(clsECliente objEclie) {
+<span class="nc" id="L127">        String nombre = null, apellido = null, telefono = null;</span>
+        try {
+            FileOutputStream archivo;
+<span class="nc" id="L130">            String url = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();</span>
+<span class="nc" id="L131">            File salida = new File(url + File.separator + &quot;pedido.pdf&quot;);</span>
+<span class="nc" id="L132">            archivo = new FileOutputStream(salida);</span>
+<span class="nc" id="L133">            Document doc = new Document();</span>
+<span class="nc" id="L134">            PdfWriter.getInstance(doc, archivo);</span>
+<span class="nc" id="L135">            doc.open();</span>
+<span class="nc" id="L136">            Image img = Image.getInstance(getClass().getResource(&quot;/Img/logo.png&quot;));</span>
+            //Fecha
+<span class="nc" id="L138">            String informacion = &quot;SELECT dni from tbclientes&quot;;</span>
+            try {
+<span class="nc" id="L140">                ps = con.prepareStatement(informacion);</span>
+<span class="nc" id="L141">                ps.setInt(1, Integer.parseInt(objEclie.dni));</span>
+<span class="nc" id="L142">                rs = ps.executeQuery();</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">                if (rs.next()) {</span>
+<span class="nc" id="L144">                    nombre = rs.getString(&quot;nombre&quot;);</span>
+<span class="nc" id="L145">                    apellido = rs.getString(&quot;apellido&quot;);</span>
+<span class="nc" id="L146">                    telefono = rs.getString(&quot;telefono&quot;);</span>
+                }
+
+<span class="nc" id="L149">            } catch (SQLException e) {</span>
+<span class="nc" id="L150">                System.out.println(e.toString());</span>
+<span class="nc" id="L151">            }</span>
+            
+<span class="nc" id="L153">            PdfPTable Encabezado = new PdfPTable(4);</span>
+<span class="nc" id="L154">            Encabezado.setWidthPercentage(100);</span>
+<span class="nc" id="L155">            Encabezado.getDefaultCell().setBorder(0);</span>
+<span class="nc" id="L156">            float[] columnWidthsEncabezado = new float[]{20f, 20f, 60f, 60f};</span>
+<span class="nc" id="L157">            Encabezado.setWidths(columnWidthsEncabezado);</span>
+<span class="nc" id="L158">            Encabezado.setHorizontalAlignment(Element.ALIGN_LEFT);</span>
+<span class="nc" id="L159">            Encabezado.addCell(img);</span>
+<span class="nc" id="L160">            Encabezado.addCell(&quot;&quot;);</span>
+            //info empresa
+<span class="nc" id="L162">            String config = &quot;SELECT * FROM cliente&quot;;</span>
+            try {
+<span class="nc" id="L164">                con = cn.getConnection();</span>
+<span class="nc" id="L165">                ps = con.prepareStatement(config);</span>
+<span class="nc" id="L166">                rs = ps.executeQuery();</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">                if (rs.next()) {</span>
+<span class="nc" id="L168">                    Encabezado.addCell(&quot;Dni:    &quot; + rs.getString(&quot;dni&quot;) </span>
+<span class="nc" id="L169">                            + &quot;\nNombre: &quot; + rs.getString(&quot;nombre&quot;) </span>
+<span class="nc" id="L170">                            + &quot;\nApellido: &quot; + rs.getString(&quot;apellido&quot;) </span>
+<span class="nc" id="L171">                            + &quot;\nTelefono: &quot; + rs.getString(&quot;dni&quot;)</span>
+                    );
+                }
+<span class="nc" id="L174">            } catch (SQLException e) {</span>
+<span class="nc" id="L175">                System.out.println(e.toString());</span>
+<span class="nc" id="L176">            }</span>
+            //
+<span class="nc" id="L178">            Paragraph info = new Paragraph();</span>
+<span class="nc" id="L179">            Font negrita = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD, BaseColor.BLUE);</span>
+//            info.add(&quot;Atendido: &quot; + usuario 
+//                    + &quot;\nN° Pedido: &quot; + id_pedido 
+//                    + &quot;\nFecha: &quot; + fechaPedido
+//                    + &quot;\nSala: &quot; + sala
+//                    + &quot;\nN° Mesa: &quot; + num_mesa
+//            );
+<span class="nc" id="L186">            Encabezado.addCell(info);</span>
+            
+<span class="nc" id="L188">            doc.add(Encabezado);</span>
+<span class="nc" id="L189">            doc.add(Chunk.NEWLINE);</span>
+<span class="nc" id="L190">            PdfPTable tabla = new PdfPTable(4);</span>
+<span class="nc" id="L191">            tabla.setWidthPercentage(100);</span>
+<span class="nc" id="L192">            tabla.getDefaultCell().setBorder(0);</span>
+<span class="nc" id="L193">            float[] columnWidths = new float[]{10f, 50f, 15f, 15f};</span>
+<span class="nc" id="L194">            tabla.setWidths(columnWidths);</span>
+<span class="nc" id="L195">            tabla.setHorizontalAlignment(Element.ALIGN_LEFT);</span>
+<span class="nc" id="L196">            PdfPCell c1 = new PdfPCell(new Phrase(&quot;Dni.&quot;, negrita));</span>
+<span class="nc" id="L197">            PdfPCell c2 = new PdfPCell(new Phrase(&quot;Nombre&quot;, negrita));</span>
+<span class="nc" id="L198">            PdfPCell c3 = new PdfPCell(new Phrase(&quot;Apellido&quot;, negrita));</span>
+<span class="nc" id="L199">            PdfPCell c4 = new PdfPCell(new Phrase(&quot;Telefono&quot;, negrita));</span>
+<span class="nc" id="L200">            c1.setBorder(Rectangle.NO_BORDER);</span>
+<span class="nc" id="L201">            c2.setBorder(Rectangle.NO_BORDER);</span>
+<span class="nc" id="L202">            c3.setBorder(Rectangle.NO_BORDER);</span>
+<span class="nc" id="L203">            c4.setBorder(Rectangle.NO_BORDER);</span>
+<span class="nc" id="L204">            c1.setBackgroundColor(BaseColor.LIGHT_GRAY);</span>
+<span class="nc" id="L205">            c2.setBackgroundColor(BaseColor.LIGHT_GRAY);</span>
+<span class="nc" id="L206">            c3.setBackgroundColor(BaseColor.LIGHT_GRAY);</span>
+<span class="nc" id="L207">            c4.setBackgroundColor(BaseColor.LIGHT_GRAY);</span>
+<span class="nc" id="L208">            tabla.addCell(c1);</span>
+<span class="nc" id="L209">            tabla.addCell(c2);</span>
+<span class="nc" id="L210">            tabla.addCell(c3);</span>
+<span class="nc" id="L211">            tabla.addCell(c4);</span>
+//            String product = &quot;SELECT d.* FROM pedidos p INNER JOIN detalle_pedidos d ON p.id = d.id_pedido WHERE p.id = ?&quot;;
+//            try {
+//                ps = con.prepareStatement(product);
+//                ps.setInt(1, id_pedido);
+//                rs = ps.executeQuery();
+//                while (rs.next()) {
+//                    double subTotal = rs.getInt(&quot;cantidad&quot;) * rs.getDouble(&quot;precio&quot;);
+//                    tabla.addCell(rs.getString(&quot;cantidad&quot;));
+//                    tabla.addCell(rs.getString(&quot;nombre&quot;));
+//                    tabla.addCell(rs.getString(&quot;precio&quot;));
+//                    tabla.addCell(String.valueOf(subTotal));
+//                }
+//
+//            } catch (SQLException e) {
+//                System.out.println(e.toString());
+//            }
+<span class="nc" id="L228">            doc.add(tabla);</span>
+<span class="nc" id="L229">            Paragraph agra = new Paragraph();</span>
+<span class="nc" id="L230">            agra.add(Chunk.NEWLINE);</span>
+            //agra.add(&quot;Total S/: &quot; + total);
+<span class="nc" id="L232">            agra.setAlignment(Element.ALIGN_RIGHT);</span>
+<span class="nc" id="L233">            doc.add(agra);</span>
+<span class="nc" id="L234">            Paragraph firma = new Paragraph();</span>
+<span class="nc" id="L235">            firma.add(Chunk.NEWLINE);</span>
+<span class="nc" id="L236">            firma.add(&quot;Cancelacion \n\n&quot;);</span>
+<span class="nc" id="L237">            firma.add(&quot;------------------------------------\n&quot;);</span>
+<span class="nc" id="L238">            firma.add(&quot;Firma \n&quot;);</span>
+<span class="nc" id="L239">            firma.setAlignment(Element.ALIGN_CENTER);</span>
+<span class="nc" id="L240">            doc.add(firma);</span>
+<span class="nc" id="L241">            Paragraph gr = new Paragraph();</span>
+<span class="nc" id="L242">            gr.add(Chunk.NEWLINE);</span>
+            //gr.add(mensaje);
+<span class="nc" id="L244">            gr.setAlignment(Element.ALIGN_CENTER);</span>
+<span class="nc" id="L245">            doc.add(gr);</span>
+<span class="nc" id="L246">            doc.close();</span>
+<span class="nc" id="L247">            archivo.close();</span>
+<span class="nc" id="L248">            Desktop.getDesktop().open(salida);</span>
+<span class="nc" id="L249">        } catch (DocumentException | IOException e) {</span>
+<span class="nc" id="L250">            System.out.println(e.toString());</span>
+        }finally{
+            try {
+<span class="nc" id="L253">                con.close();</span>
+<span class="nc" id="L254">            } catch (SQLException e) {</span>
+<span class="nc" id="L255">                System.out.println(e.toString());</span>
+<span class="nc" id="L256">            }</span>
+        }
+<span class="nc" id="L258">    }</span>
+    
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

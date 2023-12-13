@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>clsNUsuarios.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mavenproject1</a> &gt; <a href="index.source.html" class="el_package">pkgNegocio</a> &gt; <span class="el_source">clsNUsuarios.java</span></div><h1>clsNUsuarios.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pkgNegocio;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import pkgEntidad.clsEUsuarios;
+import pkgPresentacion.FrmPrincipal;
+
+/**
+ *
+ * @author ASUS
+ */
+<span class="fc" id="L15">public class clsNUsuarios {</span>
+<span class="fc" id="L16">    Conexion cn=new Conexion();//para reestablecer la conexion</span>
+    Connection con; //para llamar a la cadena de conexion
+    PreparedStatement ps; //ejecutar consulta
+    ResultSet rs; //almacena datos de la consulta
+<span class="fc" id="L20">    clsEUsuarios c=new clsEUsuarios();  </span>
+
+    public ResultSet Mtdlistar() {
+        ResultSet rpta;
+<span class="fc" id="L24">        String[] dato = new String[9];</span>
+<span class="fc" id="L25">        String sql=&quot;SELECT * FROM tbusuarios&quot;;</span>
+        try{
+<span class="fc" id="L27">            con=cn.getConnection();</span>
+<span class="fc" id="L28">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L29">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L30">            return rpta;</span>
+<span class="nc" id="L31">        }catch(SQLException ex){</span>
+<span class="nc" id="L32">            System.out.println(&quot;error al Listar&quot;+ex.getMessage());</span>
+<span class="nc" id="L33">            return rpta=null;</span>
+        }
+    }
+
+    public boolean MtdAgregar(clsEUsuarios objEusu) {
+<span class="nc" id="L38">        String sql=&quot;insert into tbusuarios(dni,clave,nombre,apellido,email,telefono,estado,fk_cargo)&quot;+</span>
+<span class="nc" id="L39">                &quot;values('&quot;+objEusu.getDni()+&quot;','&quot;+objEusu.getClave()+&quot;','&quot;+objEusu.getNombre()+&quot;','&quot;+objEusu.getApellido()+&quot;','&quot;+objEusu.getEmail()+&quot;','&quot;+objEusu.getTelefono()+&quot;','&quot;+objEusu.getEstado()+&quot;','&quot;+objEusu.getFk_cargo()+&quot;')&quot;;</span>
+        try{
+<span class="nc" id="L41">            con=cn.getConnection();</span>
+<span class="nc" id="L42">            ps=con.prepareStatement(sql);</span>
+<span class="nc" id="L43">            ps.executeUpdate(sql);</span>
+<span class="nc" id="L44">            return true;</span>
+<span class="nc" id="L45">        }catch (SQLException e){</span>
+<span class="nc" id="L46">            System.out.print(&quot;error al agregar &quot;+e.getMessage());</span>
+<span class="nc" id="L47">            return false;</span>
+        }
+    }
+
+    public boolean MtdModificar(clsEUsuarios objEusu) {
+<span class="nc" id="L52">         String sql=&quot;update tbusuarios set clave='&quot;+objEusu.getClave()+&quot;',nombre='&quot;+objEusu.getNombre()+&quot;',apellido='&quot;+objEusu.getApellido()+&quot;',email='&quot;+objEusu.getEmail()+&quot;',&quot;</span>
+<span class="nc" id="L53">                 + &quot;telefono='&quot;+objEusu.getTelefono()+&quot;',estado='&quot;+objEusu.getEstado()+&quot;'&quot;+&quot;',fk_cargo='&quot;+objEusu.getFk_cargo()+&quot;'&quot;+&quot;where dni=&quot;+objEusu.getDni()+&quot;;&quot;;</span>
+<span class="nc" id="L54">         System.out.print(sql);</span>
+        try{
+<span class="nc" id="L56">            con=cn.getConnection();</span>
+<span class="nc" id="L57">            ps=con.prepareStatement(sql);</span>
+<span class="nc" id="L58">            ps.executeUpdate(sql);</span>
+<span class="nc" id="L59">            return true;</span>
+<span class="nc" id="L60">        }catch (SQLException e){</span>
+<span class="nc" id="L61">            System.out.print(&quot;error al Modificar &quot;+e.getMessage());</span>
+<span class="nc" id="L62">            return false;</span>
+        }
+        
+    }
+
+    public boolean MtdEliminar(String dni) {
+<span class="fc" id="L68">         String sql = &quot;DELETE FROM tbusuarios WHERE dni = ?&quot;;</span>
+        try {
+<span class="fc" id="L70">            con = cn.getConnection();</span>
+<span class="fc" id="L71">            ps = con.prepareStatement(sql);</span>
+<span class="fc" id="L72">            ps.setString(1, dni);</span>
+<span class="fc" id="L73">            ps.executeUpdate();</span>
+<span class="fc" id="L74">            return true;</span>
+<span class="nc" id="L75">        } catch (SQLException e) {</span>
+<span class="nc" id="L76">            System.out.println(&quot;Error al eliminar: &quot; + e.getMessage());</span>
+<span class="nc" id="L77">            return false;</span>
+        }
+    }
+
+    public ResultSet MtdBuscarCodigo(clsEUsuarios objEe) {
+        ResultSet rpta;
+<span class="fc" id="L83">        String[] dato=new String[10];</span>
+<span class="fc" id="L84">        String sql=&quot;SELECT * FROM tbusuarios where dni='&quot;+objEe.getDni()+&quot;';&quot;;</span>
+        try{
+<span class="fc" id="L86">            con=cn.getConnection();</span>
+<span class="fc" id="L87">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L88">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L89">            return rpta;</span>
+<span class="nc" id="L90">        } catch(SQLException ex){</span>
+<span class="nc" id="L91">            System.out.println(&quot;error al Buscar &quot;+ex.getMessage());</span>
+<span class="nc" id="L92">            return rpta=null;</span>
+        }
+
+    }
+
+    
+    public boolean MtdValidarLogin(clsEUsuarios objEusu) {
+        
+<span class="fc" id="L100">                String sql=&quot;select * from tbusuarios where dni='&quot;+objEusu.getDni()+&quot;' and clave='&quot;+objEusu.getClave()+&quot;' and fk_cargo=1 and estado='A'&quot;;</span>
+        try{
+<span class="fc" id="L102">            con=cn.getConnection();</span>
+<span class="fc" id="L103">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L104">            rs=ps.executeQuery(sql);</span>
+<span class="fc" id="L105">            int c=0;</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">            while(rs.next()){</span>
+<span class="fc" id="L107">                c++;</span>
+            }
+<span class="fc bfc" id="L109" title="All 2 branches covered.">            if(c&gt;0){</span>
+<span class="fc" id="L110">                return true;</span>
+            }
+            else{
+<span class="fc" id="L113">                return false;</span>
+            }
+<span class="nc" id="L115">        }catch (SQLException e){</span>
+<span class="nc" id="L116">            System.out.print(&quot;error al agregar &quot;+e.getMessage());</span>
+<span class="nc" id="L117">            return false;</span>
+        }
+        
+    }
+   
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

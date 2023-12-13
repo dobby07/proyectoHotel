@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>clsNHabitaciones.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mavenproject1</a> &gt; <a href="index.source.html" class="el_package">pkgNegocio</a> &gt; <span class="el_source">clsNHabitaciones.java</span></div><h1>clsNHabitaciones.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pkgNegocio;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import pkgEntidad.clsEHabitaciones;
+
+/**
+ *
+ * @author Acer
+ */
+<span class="fc" id="L20">public class clsNHabitaciones {</span>
+<span class="fc" id="L21">    Conexion cn=new Conexion();//para reestablecer la conexion</span>
+    Connection con; //para llamar a la cadena de conexion
+    PreparedStatement ps; //ejecutar consulta
+    ResultSet rs; //almacena datos de la consulta
+<span class="fc" id="L25">    clsEHabitaciones c=new clsEHabitaciones();  </span>
+    
+   public ResultSet Mtdestadohabitaciones() {
+        ResultSet rpta;
+        //String[] dato = new String[1];
+<span class="fc" id="L30">        String sql=&quot;SELECT estado FROM tbhabitaciones&quot;;</span>
+        try{
+<span class="fc" id="L32">            con=cn.getConnection();</span>
+<span class="fc" id="L33">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L34">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L35">            return rpta;</span>
+<span class="nc" id="L36">        }catch(SQLException ex){</span>
+<span class="nc" id="L37">            System.out.println(&quot;error al Listar&quot;+ex.getMessage());</span>
+<span class="nc" id="L38">            return rpta=null;</span>
+        }
+    }
+   
+//   public ResultSet Mtdlistar() {
+//        
+//        return null;
+//        
+//    }
+   
+   public boolean MtdModificar(clsEHabitaciones objEhab) {
+<span class="fc" id="L49">       String sql = &quot;UPDATE tbhabitaciones SET fkdnicli = '&quot; + objEhab.getFkdnicli() + &quot;',&quot; + &quot;estado = '&quot; + objEhab.getEstado() + &quot;'WHERE id = &quot; + objEhab.getId();</span>
+       
+<span class="fc" id="L51">         System.out.print(sql);</span>
+        try{
+<span class="fc" id="L53">            con=cn.getConnection();</span>
+<span class="fc" id="L54">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L55">            ps.executeUpdate(sql);</span>
+<span class="fc" id="L56">            return true;</span>
+<span class="nc" id="L57">        }catch (SQLException e){</span>
+<span class="nc" id="L58">            System.out.print(&quot;error al Modificar &quot;+e.getMessage());</span>
+<span class="nc" id="L59">            return false;</span>
+        }
+
+    }
+
+   
+   
+   public boolean MtdAgregarHabitacion(clsEHabitaciones objEhab) {
+        
+       try{
+<span class="fc" id="L69">            String SQL=&quot;CALL USP_I_AgregarHabitacion (?,?,?,?,?,?);&quot;;</span>
+<span class="fc" id="L70">            con=cn.getConnection();</span>
+<span class="fc" id="L71">            PreparedStatement st=con.prepareStatement(SQL);</span>
+<span class="fc" id="L72">            st.setString(1, objEhab.getFkdnicli());</span>
+<span class="fc" id="L73">            st.setString(2, objEhab.getNumero());</span>
+<span class="fc" id="L74">            st.setString(3, objEhab.getTipo());</span>
+<span class="fc" id="L75">            st.setDouble(4, objEhab.getPrecio());</span>
+<span class="fc" id="L76">            st.setString(5, objEhab.getEstado());</span>
+<span class="fc" id="L77">            st.setBytes(6,objEhab.getFoto());</span>
+            
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            if (st.executeUpdate()&gt;0) {</span>
+<span class="nc" id="L80">                return true;</span>
+                
+            }
+            else{
+<span class="nc" id="L84">                return false;</span>
+                
+            }
+<span class="fc" id="L87">        }catch (SQLException e){</span>
+<span class="fc" id="L88">            return false;</span>
+        }
+    }
+   
+   public static ArrayList&lt;clsEHabitaciones&gt; MtdListar() {
+        try {
+<span class="fc" id="L94">        String SQL = &quot;Select * from tbhabitaciones&quot;;</span>
+<span class="fc" id="L95">        Conexion conexion = new Conexion();</span>
+<span class="fc" id="L96">        Connection con = conexion.getConnection();</span>
+<span class="fc" id="L97">        PreparedStatement st = con.prepareStatement(SQL);</span>
+        
+<span class="fc" id="L99">        ResultSet resultado = st.executeQuery();</span>
+<span class="fc" id="L100">        ArrayList&lt;clsEHabitaciones&gt; lista = new ArrayList&lt;&gt;();</span>
+        clsEHabitaciones res;
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        while (resultado.next()) {</span>
+<span class="fc" id="L103">            res = new clsEHabitaciones();</span>
+<span class="fc" id="L104">            res.setId(resultado.getInt(&quot;id&quot;));</span>
+<span class="fc" id="L105">            res.setFkdnicli(resultado.getString(&quot;fkdnicli&quot;));</span>
+<span class="fc" id="L106">            res.setNumero(resultado.getString(&quot;numero&quot;));</span>
+<span class="fc" id="L107">            res.setTipo(resultado.getString(&quot;tipo&quot;));</span>
+<span class="fc" id="L108">            res.setPrecio(resultado.getInt(&quot;precio&quot;));</span>
+<span class="fc" id="L109">            res.setEstado(resultado.getString(&quot;estado&quot;));</span>
+<span class="fc" id="L110">            res.setFoto(resultado.getBytes(&quot;foto&quot;));</span>
+<span class="fc" id="L111">            lista.add(res);</span>
+        }
+<span class="fc" id="L113">        return lista;</span>
+<span class="nc" id="L114">    } catch (SQLException e) {</span>
+<span class="nc" id="L115">        return null;</span>
+    }
+     }   
+    public ResultSet MtdBuscarCodigo(clsEHabitaciones objEhab) {
+        ResultSet rpta;
+<span class="fc" id="L120">        String[] dato=new String[7];</span>
+<span class="fc" id="L121">        String sql=&quot;SELECT * FROM tbhabitaciones where id='&quot;+objEhab.getId()+&quot;';&quot;;</span>
+        try{
+<span class="fc" id="L123">            con=cn.getConnection();</span>
+<span class="fc" id="L124">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L125">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L126">            return rpta;</span>
+<span class="nc" id="L127">        } catch(SQLException ex){</span>
+<span class="nc" id="L128">            System.out.println(&quot;error al Buscar &quot;+ex.getMessage());</span>
+<span class="nc" id="L129">            return rpta=null;</span>
+        }
+    }      
+}
+   
+//   public static ArrayList&lt;clsEHabitaciones&gt; MtdListarHabitacion() {
+//         try {
+//            String SQL=&quot;Select * from tbhabitaciones&quot;;  
+//            //Connection con=Conexion.Conexion();
+//            //PreparedStatement st=con.prepareStatement(SQL);
+//            //ResultSet resultado=st.executeQuery();
+//            ArrayList&lt;clsEHabitaciones&gt; listahab=new ArrayList();
+//            clsEHabitaciones lhab;
+//            
+//            
+//            while(rs.next()){
+//               lhab=new clsEHabitaciones();
+//               lhab.setId(rs.getInt(&quot;id&quot;));
+//               lhab.setUsuario_id(rs.getInt(&quot;Usuario_id&quot;));
+//               lhab.setEstado(rs.getString(&quot;Estado&quot;));
+//               lhab.setDescripcion(rs.getString(&quot;Descripcion&quot;));
+//               lhab.setTipo(rs.getString(&quot;Tipo&quot;));
+//               lhab.setPrecio(rs.getDouble(&quot;Precio&quot;));
+//               lhab.setFoto(rs.getBytes(&quot;Foto&quot;));
+//
+//               listahab.add(lhab);               
+//            }
+//            return listahab;
+//        }catch (SQLException e){
+//            return null;
+//        }
+//    }
+    
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

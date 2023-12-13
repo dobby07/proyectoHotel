@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>clsNCargo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mavenproject1</a> &gt; <a href="index.source.html" class="el_package">pkgNegocio</a> &gt; <span class="el_source">clsNCargo.java</span></div><h1>clsNCargo.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package pkgNegocio;
+import java.sql.*;
+import pkgEntidad.clsECargo;
+
+/**
+ *
+ * @author USUARIO
+ */
+<span class="fc" id="L13">public class clsNCargo {</span>
+    
+<span class="fc" id="L15">    Conexion cn=new Conexion();//para reestablecer la conexion</span>
+    Connection con; //para llamar a la cadena de conexion
+    PreparedStatement ps; //ejecutar consulta
+    ResultSet rs; //almacena datos de la consulta
+<span class="fc" id="L19">    clsECargo c=new clsECargo(); </span>
+
+    public ResultSet Mtdlistar() {
+        ResultSet rpta;
+<span class="fc" id="L23">        String[] dato = new String[4];</span>
+<span class="fc" id="L24">        String sql=&quot;SELECT * FROM tbcargos&quot;;</span>
+        try{
+<span class="fc" id="L26">            con=cn.getConnection();</span>
+<span class="fc" id="L27">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L28">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L29">            return rpta;</span>
+<span class="nc" id="L30">        }catch(SQLException ex){</span>
+<span class="nc" id="L31">            System.out.println(&quot;error al Listar&quot;+ex.getMessage());</span>
+<span class="nc" id="L32">            return rpta=null;</span>
+        }
+
+        
+
+// throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public ResultSet MtdBuscarCodigo(clsECargo objEca) {
+        ResultSet rpta;
+<span class="fc" id="L42">        String[] dato=new String[4];</span>
+<span class="fc" id="L43">        String sql=&quot;SELECT * FROM tbcargos where id='&quot;+objEca.getId()+&quot;';&quot;;</span>
+        try{
+<span class="fc" id="L45">            con=cn.getConnection();</span>
+<span class="fc" id="L46">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L47">            rpta=ps.executeQuery();</span>
+<span class="fc" id="L48">            return rpta;</span>
+<span class="nc" id="L49">        } catch(SQLException ex){</span>
+<span class="nc" id="L50">            System.out.println(&quot;error al Buscar &quot;+ex.getMessage());</span>
+<span class="nc" id="L51">            return rpta=null;</span>
+        }
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean MtdAgregar(clsECargo objEcar) {
+<span class="fc" id="L57">        String sql=&quot;insert into tbcargos(id,nombre)&quot;+</span>
+<span class="fc" id="L58">                &quot;values('&quot;+objEcar.getId()+&quot;','&quot;+objEcar.getNombre()+&quot;')&quot;;</span>
+        try{
+<span class="fc" id="L60">            con=cn.getConnection();</span>
+<span class="fc" id="L61">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L62">            ps.executeUpdate(sql);</span>
+<span class="fc" id="L63">            return true;</span>
+<span class="nc" id="L64">        }catch (SQLException e){</span>
+<span class="nc" id="L65">            System.out.print(&quot;error al agregar &quot;+e.getMessage());</span>
+<span class="nc" id="L66">            return false;</span>
+        }
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean MtdEliminar(String dni) {
+<span class="fc" id="L72">          String sql = &quot;DELETE FROM tbcargos WHERE id = ?&quot;;</span>
+        try {
+<span class="fc" id="L74">            con = cn.getConnection();</span>
+<span class="fc" id="L75">            ps = con.prepareStatement(sql);</span>
+<span class="fc" id="L76">            ps.setString(1, dni);</span>
+<span class="fc" id="L77">            ps.executeUpdate();</span>
+<span class="fc" id="L78">            return true;</span>
+<span class="nc" id="L79">        } catch (SQLException e) {</span>
+<span class="nc" id="L80">            System.out.println(&quot;Error al eliminar: &quot; + e.getMessage());</span>
+<span class="nc" id="L81">            return false;</span>
+        }
+
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean MtdModificar(clsECargo objEcar) {
+     
+<span class="fc" id="L89">      String sql=&quot;update tbcargos set nombre='&quot;+objEcar.getNombre()+&quot;'&quot;+&quot;where id=&quot;+objEcar.getId()+&quot;;&quot;;</span>
+<span class="fc" id="L90">         System.out.print(sql);</span>
+        try{
+<span class="fc" id="L92">            con=cn.getConnection();</span>
+<span class="fc" id="L93">            ps=con.prepareStatement(sql);</span>
+<span class="fc" id="L94">            ps.executeUpdate(sql);</span>
+<span class="fc" id="L95">            return true;</span>
+<span class="nc" id="L96">        }catch (SQLException e){</span>
+<span class="nc" id="L97">            System.out.print(&quot;error al Modificar &quot;+e.getMessage());</span>
+<span class="nc" id="L98">            return false;</span>
+//throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+ }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>
