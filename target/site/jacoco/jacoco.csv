@@ -2,7 +2,7 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 mavenproject1,pkgPresentacion,FrmClienteInternal,88,600,3,3,24,131,5,5,3,4
 mavenproject1,pkgPresentacion,FrmPrincipal.new ActionListener() {...},11,0,0,0,3,0,2,0,2,0
 mavenproject1,pkgPresentacion,FrmPrincipal.new Runnable() {...},6,3,0,0,2,1,1,1,1,1
-mavenproject1,pkgPresentacion,FrmLogin,35,422,1,3,8,98,1,4,0,3
+mavenproject1,pkgPresentacion,FrmLogin,35,412,1,3,8,96,1,4,0,3
 mavenproject1,pkgPresentacion,FrmAgregarHabi,18,1157,0,0,5,244,2,2,2,2
 mavenproject1,pkgPresentacion,FrmCliente,371,1053,26,2,91,209,22,5,9,4
 mavenproject1,pkgPresentacion,FrmInternalReservas.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
