@@ -27,7 +27,6 @@ StepDefinitions\UsuariosSteps.class
 StepDefinitions\ConexionSteps.class
 StepDefinitions\ReservaSteps.class
 pkgPresentacion\FrmInternalResTest.class
-pkgNegocio\ConexionTest.class
 pkgPresentacion\FrmCargoTest.class
 pkgEntidad\clsEHabitacionesTest.class
 pkgEntidad\clsEReservasTest.class
