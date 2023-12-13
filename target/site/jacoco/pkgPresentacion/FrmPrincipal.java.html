@@ -54,9 +54,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 <span class="fc" id="L54">        btnclientes = new javax.swing.JButton();</span>
 <span class="fc" id="L55">        btnhabitaciones = new javax.swing.JButton();</span>
 <span class="fc" id="L56">        btnadm = new javax.swing.JButton();</span>
-<span class="fc" id="L57">        jEImagePanel1 = new LIB.JEImagePanel();</span>
-<span class="fc" id="L58">        btnreservas = new javax.swing.JButton();</span>
-<span class="fc" id="L59">        Principal = new javax.swing.JDesktopPane();</span>
+<span class="fc" id="L57">        btnreservas = new javax.swing.JButton();</span>
+<span class="fc" id="L58">        Principal = new javax.swing.JDesktopPane();</span>
+<span class="fc" id="L59">        jEImagePanel1 = new javax.swing.JPanel();</span>
 <span class="fc" id="L60">        mPrincipal = new javax.swing.JMenuBar();</span>
 <span class="fc" id="L61">        jMenu1 = new javax.swing.JMenu();</span>
 <span class="fc" id="L62">        jMenu2 = new javax.swing.JMenu();</span>
@@ -113,150 +113,148 @@ public class FrmPrincipal extends javax.swing.JFrame {
 <span class="nc" id="L113">            }</span>
         });
 
-<span class="nc" id="L116">        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/sun.png&quot;))); // NOI18N</span>
-
-<span class="nc" id="L118">        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);</span>
-<span class="nc" id="L119">        jEImagePanel1.setLayout(jEImagePanel1Layout);</span>
-<span class="nc" id="L120">        jEImagePanel1Layout.setHorizontalGroup(</span>
-<span class="nc" id="L121">            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L122">            .addGap(0, 0, Short.MAX_VALUE)</span>
-        );
-<span class="nc" id="L124">        jEImagePanel1Layout.setVerticalGroup(</span>
-<span class="nc" id="L125">            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L126">            .addGap(0, 191, Short.MAX_VALUE)</span>
-        );
-
-<span class="nc" id="L129">        btnreservas.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/user.png&quot;))); // NOI18N</span>
-<span class="nc" id="L130">        btnreservas.setText(&quot;    RESERVAS&quot;);</span>
-<span class="nc" id="L131">        btnreservas.setToolTipText(&quot;&quot;);</span>
-<span class="nc" id="L132">        btnreservas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));</span>
-<span class="nc" id="L133">        btnreservas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);</span>
-<span class="nc" id="L134">        btnreservas.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L116">        btnreservas.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/user.png&quot;))); // NOI18N</span>
+<span class="nc" id="L117">        btnreservas.setText(&quot;    RESERVAS&quot;);</span>
+<span class="nc" id="L118">        btnreservas.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L119">        btnreservas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));</span>
+<span class="nc" id="L120">        btnreservas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);</span>
+<span class="nc" id="L121">        btnreservas.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L136">                btnreservasActionPerformed(evt);</span>
-<span class="nc" id="L137">            }</span>
+<span class="nc" id="L123">                btnreservasActionPerformed(evt);</span>
+<span class="nc" id="L124">            }</span>
         });
 
-<span class="nc" id="L140">        javax.swing.GroupLayout menuVertical_PanelLayout = new javax.swing.GroupLayout(menuVertical_Panel);</span>
-<span class="nc" id="L141">        menuVertical_Panel.setLayout(menuVertical_PanelLayout);</span>
-<span class="nc" id="L142">        menuVertical_PanelLayout.setHorizontalGroup(</span>
-<span class="nc" id="L143">            menuVertical_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L144">            .addComponent(btnescritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L145">            .addComponent(btnclientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L146">            .addComponent(btnhabitaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L147">            .addGroup(menuVertical_PanelLayout.createSequentialGroup()</span>
-<span class="nc" id="L148">                .addContainerGap()</span>
-<span class="nc" id="L149">                .addComponent(jEImagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
-<span class="nc" id="L150">            .addComponent(btnreservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L151">            .addGroup(menuVertical_PanelLayout.createSequentialGroup()</span>
-<span class="nc" id="L152">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L153">                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L154">                .addContainerGap())</span>
-<span class="nc" id="L155">            .addComponent(btnadm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L127">        javax.swing.GroupLayout menuVertical_PanelLayout = new javax.swing.GroupLayout(menuVertical_Panel);</span>
+<span class="nc" id="L128">        menuVertical_Panel.setLayout(menuVertical_PanelLayout);</span>
+<span class="nc" id="L129">        menuVertical_PanelLayout.setHorizontalGroup(</span>
+<span class="nc" id="L130">            menuVertical_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L131">            .addComponent(btnescritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L132">            .addComponent(btnclientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L133">            .addComponent(btnhabitaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L134">            .addComponent(btnreservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L135">            .addComponent(btnadm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L136">            .addGroup(menuVertical_PanelLayout.createSequentialGroup()</span>
+<span class="nc" id="L137">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L138">                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L139">                .addContainerGap())</span>
         );
-<span class="nc" id="L157">        menuVertical_PanelLayout.setVerticalGroup(</span>
-<span class="nc" id="L158">            menuVertical_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L159">            .addGroup(menuVertical_PanelLayout.createSequentialGroup()</span>
-<span class="nc" id="L160">                .addComponent(jEImagePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L161">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L162">                .addComponent(jLabel3)</span>
-<span class="nc" id="L163">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L164">                .addComponent(btnescritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L165">                .addGap(0, 0, 0)</span>
-<span class="nc" id="L166">                .addComponent(btnclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L167">                .addGap(0, 0, 0)</span>
-<span class="nc" id="L168">                .addComponent(btnhabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L169">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L170">                .addComponent(btnreservas, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L171">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L172">                .addComponent(btnadm, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L173">                .addGap(252, 252, 252))</span>
+<span class="nc" id="L141">        menuVertical_PanelLayout.setVerticalGroup(</span>
+<span class="nc" id="L142">            menuVertical_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L143">            .addGroup(menuVertical_PanelLayout.createSequentialGroup()</span>
+<span class="nc" id="L144">                .addGap(197, 197, 197)</span>
+<span class="nc" id="L145">                .addComponent(jLabel3)</span>
+<span class="nc" id="L146">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L147">                .addComponent(btnescritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L148">                .addGap(0, 0, 0)</span>
+<span class="nc" id="L149">                .addComponent(btnclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L150">                .addGap(0, 0, 0)</span>
+<span class="nc" id="L151">                .addComponent(btnhabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L152">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L153">                .addComponent(btnreservas, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L154">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L155">                .addComponent(btnadm, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L156">                .addGap(252, 252, 252))</span>
         );
 
-<span class="nc" id="L176">        javax.swing.GroupLayout PrincipalLayout = new javax.swing.GroupLayout(Principal);</span>
-<span class="nc" id="L177">        Principal.setLayout(PrincipalLayout);</span>
-<span class="nc" id="L178">        PrincipalLayout.setHorizontalGroup(</span>
-<span class="nc" id="L179">            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L180">            .addGap(0, 922, Short.MAX_VALUE)</span>
+<span class="nc" id="L159">        javax.swing.GroupLayout PrincipalLayout = new javax.swing.GroupLayout(Principal);</span>
+<span class="nc" id="L160">        Principal.setLayout(PrincipalLayout);</span>
+<span class="nc" id="L161">        PrincipalLayout.setHorizontalGroup(</span>
+<span class="nc" id="L162">            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L163">            .addGap(0, 916, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L182">        PrincipalLayout.setVerticalGroup(</span>
-<span class="nc" id="L183">            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L184">            .addGap(0, 0, Short.MAX_VALUE)</span>
+<span class="nc" id="L165">        PrincipalLayout.setVerticalGroup(</span>
+<span class="nc" id="L166">            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L167">            .addGap(0, 0, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L187">        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/application.png&quot;))); // NOI18N</span>
-<span class="nc" id="L188">        jMenu1.setText(&quot;Menu&quot;);</span>
-<span class="nc" id="L189">        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L170">        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);</span>
+<span class="nc" id="L171">        jEImagePanel1.setLayout(jEImagePanel1Layout);</span>
+<span class="nc" id="L172">        jEImagePanel1Layout.setHorizontalGroup(</span>
+<span class="nc" id="L173">            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L174">            .addGap(0, 0, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L176">        jEImagePanel1Layout.setVerticalGroup(</span>
+<span class="nc" id="L177">            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L178">            .addGap(0, 154, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L181">        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/application.png&quot;))); // NOI18N</span>
+<span class="nc" id="L182">        jMenu1.setText(&quot;Menu&quot;);</span>
+<span class="nc" id="L183">        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L191">                jMenu1MouseClicked(evt);</span>
-<span class="nc" id="L192">            }</span>
+<span class="nc" id="L185">                jMenu1MouseClicked(evt);</span>
+<span class="nc" id="L186">            }</span>
         });
-<span class="nc" id="L194">        mPrincipal.add(jMenu1);</span>
+<span class="nc" id="L188">        mPrincipal.add(jMenu1);</span>
 
-<span class="nc" id="L196">        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/user.png&quot;))); // NOI18N</span>
-<span class="nc" id="L197">        jMenu2.setText(&quot;Clientes&quot;);</span>
-<span class="nc" id="L198">        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L190">        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/user.png&quot;))); // NOI18N</span>
+<span class="nc" id="L191">        jMenu2.setText(&quot;Clientes&quot;);</span>
+<span class="nc" id="L192">        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L200">                jMenu2MouseClicked(evt);</span>
-<span class="nc" id="L201">            }</span>
+<span class="nc" id="L194">                jMenu2MouseClicked(evt);</span>
+<span class="nc" id="L195">            }</span>
         });
 
-<span class="nc" id="L204">        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/application.png&quot;))); // NOI18N</span>
-<span class="nc" id="L205">        jMenuItem5.setText(&quot;Lista&quot;);</span>
-<span class="nc" id="L206">        jMenu2.add(jMenuItem5);</span>
+<span class="nc" id="L198">        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/application.png&quot;))); // NOI18N</span>
+<span class="nc" id="L199">        jMenuItem5.setText(&quot;Lista&quot;);</span>
+<span class="nc" id="L200">        jMenu2.add(jMenuItem5);</span>
 
-<span class="nc" id="L208">        mPrincipal.add(jMenu2);</span>
+<span class="nc" id="L202">        mPrincipal.add(jMenu2);</span>
 
-<span class="nc" id="L210">        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/cama_1.png&quot;))); // NOI18N</span>
-<span class="nc" id="L211">        jMenu3.setText(&quot;Habitaciones&quot;);</span>
+<span class="nc" id="L204">        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/cama_1.png&quot;))); // NOI18N</span>
+<span class="nc" id="L205">        jMenu3.setText(&quot;Habitaciones&quot;);</span>
 
-<span class="nc" id="L213">        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/application.png&quot;))); // NOI18N</span>
-<span class="nc" id="L214">        jMenuItem4.setText(&quot;Lista&quot;);</span>
-<span class="nc" id="L215">        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L207">        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/application.png&quot;))); // NOI18N</span>
+<span class="nc" id="L208">        jMenuItem4.setText(&quot;Lista&quot;);</span>
+<span class="nc" id="L209">        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L217">                jMenuItem4MouseClicked(evt);</span>
-<span class="nc" id="L218">            }</span>
+<span class="nc" id="L211">                jMenuItem4MouseClicked(evt);</span>
+<span class="nc" id="L212">            }</span>
         });
-<span class="nc" id="L220">        jMenu3.add(jMenuItem4);</span>
+<span class="nc" id="L214">        jMenu3.add(jMenuItem4);</span>
 
-<span class="nc" id="L222">        mPrincipal.add(jMenu3);</span>
+<span class="nc" id="L216">        mPrincipal.add(jMenu3);</span>
 
-<span class="nc" id="L224">        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/record.png&quot;))); // NOI18N</span>
-<span class="nc" id="L225">        jMenu4.setText(&quot;Desconectar&quot;);</span>
-<span class="nc" id="L226">        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L218">        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/pkgImg/record.png&quot;))); // NOI18N</span>
+<span class="nc" id="L219">        jMenu4.setText(&quot;Desconectar&quot;);</span>
+<span class="nc" id="L220">        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L228">                jMenu4MouseClicked(evt);</span>
-<span class="nc" id="L229">            }</span>
+<span class="nc" id="L222">                jMenu4MouseClicked(evt);</span>
+<span class="nc" id="L223">            }</span>
         });
-<span class="nc" id="L231">        jMenu4.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L225">        jMenu4.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L233">                jMenu4ActionPerformed(evt);</span>
-<span class="nc" id="L234">            }</span>
+<span class="nc" id="L227">                jMenu4ActionPerformed(evt);</span>
+<span class="nc" id="L228">            }</span>
         });
-<span class="nc" id="L236">        mPrincipal.add(jMenu4);</span>
+<span class="nc" id="L230">        mPrincipal.add(jMenu4);</span>
 
-<span class="nc" id="L238">        setJMenuBar(mPrincipal);</span>
+<span class="nc" id="L232">        setJMenuBar(mPrincipal);</span>
 
-<span class="nc" id="L240">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L241">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L242">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L243">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L244">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L245">                .addComponent(menuVertical_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L246">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L247">                .addComponent(Principal))</span>
+<span class="nc" id="L234">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L235">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L236">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L237">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L238">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L239">                .addComponent(jEImagePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L240">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L241">                .addComponent(menuVertical_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L242">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L243">                .addComponent(Principal))</span>
         );
-<span class="nc" id="L249">        layout.setVerticalGroup(</span>
-<span class="nc" id="L250">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L251">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L252">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L253">                    .addComponent(Principal)</span>
-<span class="nc" id="L254">                    .addComponent(menuVertical_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE))</span>
-<span class="nc" id="L255">                .addGap(0, 0, 0))</span>
+<span class="nc" id="L245">        layout.setVerticalGroup(</span>
+<span class="nc" id="L246">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L247">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L248">                .addComponent(Principal)</span>
+<span class="nc" id="L249">                .addComponent(menuVertical_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 624, Short.MAX_VALUE))</span>
+<span class="nc" id="L250">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L251">                .addGap(32, 32, 32)</span>
+<span class="nc" id="L252">                .addComponent(jEImagePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L253">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L258">        pack();</span>
-<span class="nc" id="L259">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L256">        pack();</span>
+<span class="nc" id="L257">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     
     
@@ -265,7 +263,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 //        FrmInternalEscritorio objAI=new FrmInternalEscritorio();
 //        Principal.add(objAI);
 //        objAI.show();
-<span class="nc" id="L268">    }//GEN-LAST:event_btnescritorioActionPerformed</span>
+<span class="nc" id="L266">    }//GEN-LAST:event_btnescritorioActionPerformed</span>
 
     private void btnclientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclientesActionPerformed
 
@@ -273,55 +271,55 @@ public class FrmPrincipal extends javax.swing.JFrame {
 //        Principal.add(objAI);
 //        objAI.show();
         
-<span class="nc" id="L276">    }//GEN-LAST:event_btnclientesActionPerformed</span>
+<span class="nc" id="L274">    }//GEN-LAST:event_btnclientesActionPerformed</span>
 
     private void btnhabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhabitacionesActionPerformed
 
 //        FrmInternalListaHab objAI=new FrmInternalListaHab();
 //        Principal.add(objAI);
 //        objAI.show();
-<span class="nc" id="L283">    }//GEN-LAST:event_btnhabitacionesActionPerformed</span>
+<span class="nc" id="L281">    }//GEN-LAST:event_btnhabitacionesActionPerformed</span>
 
     private void btnadmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadmActionPerformed
 
        
-<span class="nc" id="L288">    }//GEN-LAST:event_btnadmActionPerformed</span>
+<span class="nc" id="L286">    }//GEN-LAST:event_btnadmActionPerformed</span>
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         
 //        FrmInternalEscritorio objAI=new FrmInternalEscritorio();
 //        Principal.add(objAI);
 //        objAI.show();
-<span class="nc" id="L295">    }//GEN-LAST:event_jMenu1MouseClicked</span>
+<span class="nc" id="L293">    }//GEN-LAST:event_jMenu1MouseClicked</span>
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
 //         TODO add your handling code here:
-<span class="nc" id="L299">    }//GEN-LAST:event_jMenu4ActionPerformed</span>
+<span class="nc" id="L297">    }//GEN-LAST:event_jMenu4ActionPerformed</span>
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
 //        FrmLogin frm=new FrmLogin();
 //                    frm.show();
 //                    this.dispose(); 
         
-<span class="nc" id="L306">    }//GEN-LAST:event_jMenu4MouseClicked</span>
+<span class="nc" id="L304">    }//GEN-LAST:event_jMenu4MouseClicked</span>
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
 //       FrmCliente objAI=new FrmCliente();
 //        Principal.add(objAI);
 //        objAI.show();
-<span class="nc" id="L312">    }//GEN-LAST:event_jMenu2MouseClicked</span>
+<span class="nc" id="L310">    }//GEN-LAST:event_jMenu2MouseClicked</span>
 
     private void jMenuItem4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MouseClicked
 //        FrmInternalListaHab objAI=new FrmInternalListaHab();
 //        Principal.add(objAI);
 //        objAI.show();
-<span class="nc" id="L318">    }//GEN-LAST:event_jMenuItem4MouseClicked</span>
+<span class="nc" id="L316">    }//GEN-LAST:event_jMenuItem4MouseClicked</span>
 
     private void btnreservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreservasActionPerformed
 //        FrmReservas objAI=new FrmReservas();
 //        Principal.add(objAI);
 //        objAI.show();
-<span class="nc" id="L324">    }//GEN-LAST:event_btnreservasActionPerformed</span>
+<span class="nc" id="L322">    }//GEN-LAST:event_btnreservasActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -333,31 +331,31 @@ public class FrmPrincipal extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="pc bpc" id="L336" title="1 of 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="fc bfc" id="L337" title="All 2 branches covered.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="fc" id="L338">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="fc" id="L339">                    break;</span>
+<span class="pc bpc" id="L334" title="1 of 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="fc bfc" id="L335" title="All 2 branches covered.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="fc" id="L336">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="fc" id="L337">                    break;</span>
                 }
             }
-<span class="nc" id="L342">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L340">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L341">            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L342">        } catch (InstantiationException ex) {</span>
 <span class="nc" id="L343">            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L344">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L344">        } catch (IllegalAccessException ex) {</span>
 <span class="nc" id="L345">            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L346">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L346">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
 <span class="nc" id="L347">            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L348">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L349">            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="pc" id="L350">        }</span>
+<span class="pc" id="L348">        }</span>
         //&lt;/editor-fold&gt;
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="fc" id="L355">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="fc" id="L353">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L357">                new FrmPrincipal().setVisible(true);</span>
-<span class="nc" id="L358">            }</span>
+<span class="nc" id="L355">                new FrmPrincipal().setVisible(true);</span>
+<span class="nc" id="L356">            }</span>
         });
-<span class="fc" id="L360">    }</span>
+<span class="fc" id="L358">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Principal;
@@ -366,7 +364,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnescritorio;
     private javax.swing.JButton btnhabitaciones;
     private javax.swing.JButton btnreservas;
-    private LIB.JEImagePanel jEImagePanel1;
+    private javax.swing.JPanel jEImagePanel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

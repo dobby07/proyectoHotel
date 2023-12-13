@@ -10,7 +10,6 @@ pkgPresentacion\FrmReservas$1.class
 pkgPresentacion\FrmCliente$4.class
 pkgPresentacion\FrmUsuariosInternal$1.class
 pkgPresentacion\FrmInternalListaHab.class
-pkgPresentacion\FrmAgregarHabi$1.class
 pkgPresentacion\FrmClienteInternal.class
 pkgPresentacion\FrmCargo$4.class
 pkgPresentacion\FrmUsuarios$1.class
@@ -23,7 +22,6 @@ pkgPresentacion\FrmCliente$7.class
 pkgPresentacion\FrmClienteInternal$2.class
 pkgPresentacion\FrmReservas.class
 pkgPresentacion\FrmCargo$7.class
-pkgPresentacion\FrmAgregarHabi$2.class
 pkgPresentacion\FrmCliente$5.class
 pkgPresentacion\FrmAlquilerHab$1.class
 pkgPresentacion\FrmInternalListaHab$1.class
@@ -59,7 +57,6 @@ pkgEntidad\clsEUsuarios.class
 pkgPresentacion\FrmAgregarHabi.class
 pkgPresentacion\FrmUsuarios$6.class
 pkgPresentacion\FrmReservas$6.class
-pkgPresentacion\FrmLogin$2.class
 pkgPresentacion\FrmPrincipal$5.class
 pkgPresentacion\FrmPrincipal$11.class
 pkgPresentacion\FrmCargo$2.class
@@ -83,7 +80,6 @@ pkgPresentacion\FrmPrincipal$2.class
 pkgPresentacion\FrmUsuarios$7.class
 pkgNegocio\clsNCliente.class
 pkgPresentacion\FrmCargo$3.class
-pkgPresentacion\FrmLogin$3.class
 pkgPresentacion\FrmPrincipal$6.class
 pkgEntidad\clsEHabitaciones.class
 pkgPresentacion\FrmCliente.class
@@ -91,5 +87,4 @@ pkgEntidad\clsESuministro.class
 pkgPresentacion\FrmCliente$3.class
 pkgPresentacion\FrmLogin.class
 pkgPresentacion\FrmCliente$6.class
-pkgPresentacion\FrmAgregarHabi$3.class
 pkgNegocio\RenderTabla.class
