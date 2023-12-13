@@ -31,7 +31,7 @@ public class FrmClienteInternalTest {
     @org.junit.jupiter.api.Test
     public void testSetDatos() {
         System.out.println("setDatos");
-        String dni = "00112233";
+        String dni = "12345678";
         String direccion = "Sample Address";
         String telefono = "123-456-789";
         String email = "sample@email.com";

@@ -39,13 +39,13 @@ import pkgEntidad.clsECargo;
 
     public ResultSet MtdBuscarCodigo(clsECargo objEca) {
         ResultSet rpta;
-<span class="fc" id="L42">        String[] dato=new String[4];</span>
-<span class="fc" id="L43">        String sql=&quot;SELECT * FROM tbcargos where id='&quot;+objEca.getId()+&quot;';&quot;;</span>
+<span class="nc" id="L42">        String[] dato=new String[4];</span>
+<span class="nc" id="L43">        String sql=&quot;SELECT * FROM tbcargos where id='&quot;+objEca.getId()+&quot;';&quot;;</span>
         try{
-<span class="fc" id="L45">            con=cn.getConnection();</span>
-<span class="fc" id="L46">            ps=con.prepareStatement(sql);</span>
-<span class="fc" id="L47">            rpta=ps.executeQuery();</span>
-<span class="fc" id="L48">            return rpta;</span>
+<span class="nc" id="L45">            con=cn.getConnection();</span>
+<span class="nc" id="L46">            ps=con.prepareStatement(sql);</span>
+<span class="nc" id="L47">            rpta=ps.executeQuery();</span>
+<span class="nc" id="L48">            return rpta;</span>
 <span class="nc" id="L49">        } catch(SQLException ex){</span>
 <span class="nc" id="L50">            System.out.println(&quot;error al Buscar &quot;+ex.getMessage());</span>
 <span class="nc" id="L51">            return rpta=null;</span>

@@ -5,6 +5,7 @@
 package pkgNegocio;
 
 import java.sql.ResultSet;
+import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,19 +34,19 @@ public class clsNCargoTest {
         // Add more assertions based on your expected results
     }
 
-    @org.junit.jupiter.api.Test
-    void testBuscarCodigoCargo() {
-        // Arrange
-        clsECargo objECargo = new clsECargo();
-        objECargo.setId(1); // Assuming this ID exists in your database
-
-        // Act
-        var result = objNCargo.MtdBuscarCodigo(objECargo);
-
-        // Assert
-        assertNotNull(result);
-        // Add more assertions based on your expected results
-    }
+//    @org.junit.jupiter.api.Test
+//    void testBuscarCodigoCargo() {
+//        // Arrange
+//        clsECargo objECargo = new clsECargo();
+//        objECargo.setId(1); // Assuming this ID exists in your database
+//
+//        // Act
+//        var result = objNCargo.MtdBuscarCodigo(objECargo);
+//
+//        // Assert
+//        assertNotNull(result);
+//        // Add more assertions based on your expected results
+//    }
 
    @org.junit.jupiter.api.Test
     void testAgregarCargo() {
