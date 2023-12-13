@@ -44,14 +44,14 @@ mavenproject1,pkgPresentacion,FrmCargoInternal,78,364,3,3,21,80,4,5,2,4
 mavenproject1,pkgPresentacion,FrmAlquilerHab.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
 mavenproject1,pkgPresentacion,FrmPrincipal.new MouseAdapter() {...},11,0,0,0,3,0,2,0,2,0
 mavenproject1,pkgPresentacion,FrmUsuarios.new MouseAdapter() {...},5,6,0,0,2,1,1,1,1,1
-mavenproject1,pkgPresentacion,FrmAlquilerHab.new Runnable() {...},6,3,0,0,2,1,1,1,1,1
+mavenproject1,pkgPresentacion,FrmAlquilerHab.new Runnable() {...},0,9,0,0,0,3,0,2,0,2
 mavenproject1,pkgPresentacion,FrmPrincipal.new MouseAdapter() {...},11,0,0,0,3,0,2,0,2,0
 mavenproject1,pkgPresentacion,FrmUsuarios.new JTable() {...},2,6,0,0,1,1,1,1,1,1
 mavenproject1,pkgPresentacion,FrmUsuarios.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
 mavenproject1,pkgPresentacion,FrmPrincipal.new MouseAdapter() {...},11,0,0,0,3,0,2,0,2,0
 mavenproject1,pkgPresentacion,FrmUsuarios.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
 mavenproject1,pkgPresentacion,FrmInternalRes,3,522,0,0,3,116,3,2,3,2
-mavenproject1,pkgPresentacion,FrmUsuariosInternal.new Runnable() {...},0,9,0,0,0,3,0,2,0,2
+mavenproject1,pkgPresentacion,FrmUsuariosInternal.new Runnable() {...},6,3,0,0,2,1,1,1,1,1
 mavenproject1,pkgPresentacion,FrmUsuariosInternal.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
 mavenproject1,pkgPresentacion,FrmUsuariosInternal.new ActionListener() {...},5,6,0,0,2,1,1,1,1,1
 mavenproject1,pkgPresentacion,FrmCargo,256,846,22,2,69,158,17,5,6,4
