@@ -28,7 +28,7 @@ public class FrmAlquilerHabTest {
     public void testSetDatos() {
         System.out.println("setDatos");
         int idInt = 9;
-        String fkdnicli = "0011233";
+        String fkdnicli = "12345678";
         String numero = "101";
         String tipo = "Individual";
         double precioDouble = 100.0;
