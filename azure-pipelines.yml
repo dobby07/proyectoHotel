@@ -21,7 +21,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/target/surefire-reports/TEST-*.xml'
+    testResultsFiles: '**/target/surefire-reports/*.xml'
 - task: PublishCodeCoverageResults@2
   inputs:
-    summaryFileLocation: 'target/site/jacoco/index.html'
+    summaryFileLocation: 'target/site/jacoco/jacoco.xml'
