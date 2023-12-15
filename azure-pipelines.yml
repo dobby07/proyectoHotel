@@ -25,3 +25,11 @@ steps:
 - task: PublishCodeCoverageResults@2
   inputs:
     summaryFileLocation: 'target/site/jacoco/jacoco.xml'
+- task: PublishCucumberReport@1
+  inputs:
+    jsonDir: 'target/'
+    outputPath: 'target/HtmlReports/'
+    theme: 'bootstrap'
+    reportSuiteAsScenarios: true
+    name: 'Cucumber HTML Report for demo'
+    title: 'HTML Report'
